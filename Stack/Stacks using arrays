@@ -1,0 +1,77 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Stack{
+    int* arr;
+    int size;
+    int top;
+    
+    public:
+    Stack(int capacity){
+        arr=new int[capacity];
+        size=capacity;
+        top=-1;
+    }
+    //push op
+    void push(int val){
+        if(top==size-1){
+            cout<<"STACK OVERFLOW !!"<<endl;
+        }
+        else{
+            top++;
+            arr[top]=val;
+        }
+    }
+    //pop op
+    void pop(){
+        if(top==-1){
+            cout<<"STACK UNDERFLOW"<<endl;
+        }
+        else{
+            cout<<"popped element="<<arr[top--]<<endl; 
+        }
+    }
+    //peek
+    void peek(){
+        cout<<"topmost element="<<arr[top];
+    }
+    //isEmpty
+    bool isEmpty(){
+        if(top==-1){
+            return true;
+        }
+        return false;
+    }
+    //isFull
+    bool isFull(){
+        if(top==size-1){
+            return true;
+        }
+        return false;
+    }
+    //display
+    void display(){
+        if(!isEmpty())
+        for(int i=0;i<=top;i++){
+            cout<<arr[i]<<" ";
+        }
+        cout<<endl;
+    }
+};
+int main(){
+    int size=6;
+    Stack st1(size);
+    st1.push(1);
+    st1.push(2);
+    st1.push(3);
+    st1.push(4);
+    st1.display();
+    st1.pop();
+    st1.display();
+    st1.peek();
+    st1.isFull();
+    st1.isEmpty();
+    return 0;
+}
+
+//@copyrights: by Sagarika 
+//HAPPY CODING :)
