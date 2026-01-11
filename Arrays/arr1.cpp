@@ -11,7 +11,7 @@ void linearSearch(int arr[],int n,int key){
     bool f=false;
     for(int i=0;i<n;i++){
         if(key==arr[i]){
-            cout<<"Element found at"<<i;
+            cout<<"Element found at"<<i<<'\n';
             f=true;
             break;
         }
@@ -70,4 +70,13 @@ int main(){
     int arr2[]={7,18,3,9,4};
     int key = 3;
     linearSearch(arr2,5,key);
+    //reverse an array
+    int aray[]={1,2,3,4,5};
+    int rev[5];
+    n=5;
+    for(int i=0;i<n;i++){
+        int j=n-i-1;
+        rev[i]=aray[j];
+    }
+    printArr(rev,5);
 }
