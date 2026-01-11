@@ -79,4 +79,13 @@ int main(){
         rev[i]=aray[j];
     }
     printArr(rev,5);
+    //using 2 ptr - reverse an array
+    int f=0;
+    int b=n-1;
+    for(int i=0;i<n/2;i++){
+        swap(aray[f],aray[b]);
+        f++;
+        b--;
+    }
+    printArr(aray,5);
 }
