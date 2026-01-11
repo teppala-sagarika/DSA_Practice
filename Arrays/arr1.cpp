@@ -6,6 +6,19 @@ void printArr(int a[],int n){
     }
     cout<<endl;
 }
+//linear search
+void linearSearch(int arr[],int n,int key){
+    bool f=false;
+    for(int i=0;i<n;i++){
+        if(key==arr[i]){
+            cout<<"Element found at"<<i;
+            f=true;
+            break;
+        }
+    }
+    if(!f)
+    cout<<"Element not found";
+}
 int main(){
     int marks[5]={1,2,3,4,5};
     cout<<sizeof(marks)<<endl;//20 //each 4 bytes
@@ -52,4 +65,9 @@ int main(){
     cout<<*(a+1)<<endl;//a[1]
     cout<<*(a+2)<<endl;//a[2]
     printArr(a,5);
+
+    //linear search
+    int arr2[]={7,18,3,9,4};
+    int key = 3;
+    linearSearch(arr2,5,key);
 }
