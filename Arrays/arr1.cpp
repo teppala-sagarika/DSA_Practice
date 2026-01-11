@@ -88,4 +88,26 @@ int main(){
         b--;
     }
     printArr(aray,5);
+    //binary search (for sorted arrays)
+    key = 8;
+    bool fnd=false;
+    int low=0;
+    int high=5-1;//4
+    while(low<=high){
+    int mid=(low+high)/2;
+    if(key==aray[mid]){
+        fnd=true;
+        cout<<"found"<<endl;
+        break;
+    }
+    else if(aray[mid]<key){
+        low=mid+1;
+    }
+    else{
+        high=mid-1;
+    }
+    }
+    if(!fnd){
+        cout<<"Not found"<<endl;
+    }
 }
