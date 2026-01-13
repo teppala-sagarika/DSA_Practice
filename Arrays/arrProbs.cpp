@@ -14,4 +14,14 @@ for(int i=0;i<5;i++){//start
     }
     cout<<"\n";
 }
+cout<<"Printing subarrays faster\n";
+//this takes O(n^3)
+//but we can do it even faster i.e O(n^2) if we use strings
+for(int i=0;i<5;i++){
+    string subStr="";
+    for(int j=i;j<5;j++){
+        subStr+=to_string(arr[j])+" ";
+        cout<<subStr<<endl;
+    }
+}
 }
