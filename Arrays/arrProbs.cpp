@@ -57,6 +57,28 @@ int buyAndSell(int *arr,int n){
     return prof;
 }
 
+//trapping rain water
+int trapWater(int *ht,int n){
+    int left[n];
+    int ryt[n];
+    left[0]=INT_MIN;
+    ryt[n-1]=INT_MIN;
+    for(int i=1;i<n;i++){
+        left[i]=max(left[i-1],ht[i-1]);
+    }
+    for(int i=n-2;i>=0;i--){
+        ryt[i]=max(ryt[i+1],ht[i+1]);
+    }
+    int s=0;
+    for(int i=1;i<=n-2;i++){
+       int storage=min(left[i],ryt[i])-ht[i];
+       if(storage>0){
+        s+=storage;
+       }
+    }
+    return s;
+}
+
 int main(){
 //print subarrays
 int arr[]={1,2,3,4,5};
@@ -95,4 +117,9 @@ cout<<kadanesAlgo(a,6)<<endl;
 cout<<"Best buy and sell to get max profit=";
 int prices[]={7,1,5,3,6,4};
 cout<<buyAndSell(prices,6)<<endl;
+
+//trapping rain water
+int hts[]={4,2,0,6,3,2,5};
+cout<<"water trapped=";
+cout<<trapWater(hts,7)<<endl;
 }
