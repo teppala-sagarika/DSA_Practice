@@ -79,6 +79,35 @@ int trapWater(int *ht,int n){
     return s;
 }
 
+//search in rotated sorted array
+int search(int *nums,int n, int target) {
+        int low=0;
+        int high=n-1;
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(nums[mid]==target){
+                return mid;
+            }
+                if(nums[low]<=nums[mid]){//left sorted 
+                if(nums[low]<=target && nums[mid]>target){
+                    high=mid-1;
+                }
+                else{
+                    low=mid+1;
+                }
+                }
+                else{
+                    if(nums[mid]<target && nums[high]>=target){
+                        low=mid+1;
+                    }
+                    else{
+                        high=mid-1;
+                    }
+                }
+        }
+        return -1;
+    }
+
 int main(){
 //print subarrays
 int arr[]={1,2,3,4,5};
@@ -122,4 +151,10 @@ cout<<buyAndSell(prices,6)<<endl;
 int hts[]={4,2,0,6,3,2,5};
 cout<<"water trapped=";
 cout<<trapWater(hts,7)<<endl;
+
+//search in rotated sorted array
+int nos[]={4,5,6,7,0,1,2};
+int target=0;
+cout<<"search in rotated sorted array=";
+cout<<search(nos,7,target)<<endl;
 }
