@@ -43,6 +43,20 @@ int kadanesAlgo(int *arr,int n){
     return maxSum;
 }
 
+//buy and sell
+int buyAndSell(int *arr,int n){
+    int buy[6];
+    buy[0]=INT_MAX;
+    for(int i=1;i<n;i++){
+        buy[i]=min(buy[i-1],arr[i-1]);
+    }
+    int prof=0;
+    for(int i=0;i<n;i++){
+        prof=max(prof,arr[i]-buy[i]);
+    }
+    return prof;
+}
+
 int main(){
 //print subarrays
 int arr[]={1,2,3,4,5};
@@ -76,4 +90,9 @@ cout<<maxSubArrSum2(a,6)<<endl;
 //kadane's algorithm
 cout<<"max subarray sum (kadane's algorithm) =";
 cout<<kadanesAlgo(a,6)<<endl;
+
+//buy and sell stocks (max profit must be returned)
+cout<<"Best buy and sell to get max profit=";
+int prices[]={7,1,5,3,6,4};
+cout<<buyAndSell(prices,6)<<endl;
 }
