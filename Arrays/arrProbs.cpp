@@ -108,6 +108,21 @@ int search(int *nums,int n, int target) {
         return -1;
     }
 
+//max prod sub arr
+int maxProdSubArr(int *nums,int n){
+       int pre=1;
+       int suf=1;
+       int maxProd=INT_MIN;
+       for(int i=0;i<n;i++){
+        if(pre==0) pre=1;
+        if(suf==0) suf=1;
+        pre*=nums[i];
+        suf*=nums[n-1-i];
+        maxProd=max(maxProd,max(pre,suf));
+       } 
+       return maxProd;
+    }
+
 int main(){
 //print subarrays
 int arr[]={1,2,3,4,5};
@@ -157,4 +172,10 @@ int nos[]={4,5,6,7,0,1,2};
 int target=0;
 cout<<"search in rotated sorted array=";
 cout<<search(nos,7,target)<<endl;
+
+//maximum product subarray
+int nums[]={2,3,-2,4};
+cout<<"maximum product subarray=";
+cout<<maxProdSubArr(nums,4)<<endl;
+
 }
